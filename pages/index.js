@@ -7,34 +7,15 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>SalesLobster — Replace Agentforce at a fraction of the cost</title>
+        <title>SalesLobster - Replace Agentforce at a fraction of the cost</title>
         <meta
           name="description"
-          content="SalesLobster is an OpenClaw-powered Salesforce automation agent. See the ROI calculator and try the Order Chat demo." 
+          content="SalesLobster is an OpenClaw-powered Salesforce automation agent. See the ROI calculator and try the Order Chat demo."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* Minimal header */}
-      <header className="sticky top-0 z-50 border-b border-gray-800 bg-slate-950/60 backdrop-blur">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">🦞</span>
-            <span className="font-extrabold tracking-tight">SalesLobster</span>
-          </div>
-          <nav className="flex items-center gap-3">
-            <a className="nav-link" href="#roi">ROI</a>
-            <a className="nav-link" href="#chat">Order Chat</a>
-            <a className="nav-link" href="#contact">Contact</a>
-            <a
-              className="cta-button"
-              href="#roi"
-            >
-              Calculate Savings →
-            </a>
-          </nav>
-        </div>
-      </header>
+      {/* Navigation is rendered globally in pages/_app.js */}
 
       {/* Hero */}
       <section className="relative overflow-hidden">
@@ -71,7 +52,7 @@ export default function Home() {
               <div className="stat-card">
                 <div className="text-sm text-gray-400">Principle</div>
                 <div className="text-lg font-bold">No made-up marketing</div>
-                <div className="text-sm text-gray-500 mt-1">We’ll add proof as we earn it.</div>
+                <div className="text-sm text-gray-500 mt-1">We'll add proof as we earn it.</div>
               </div>
               <div className="stat-card">
                 <div className="text-sm text-gray-400">Architecture</div>
@@ -130,7 +111,7 @@ export default function Home() {
             </div>
           </div>
           <div className="stat-card">
-            <h3 className="font-bold mb-3">What this demo is (and isn’t)</h3>
+            <h3 className="font-bold mb-3">What this demo is (and isn't)</h3>
             <ul className="text-gray-300 text-sm space-y-2 list-disc pl-5">
               <li><span className="font-semibold">Is:</span> a working chat UI + API route.</li>
               <li><span className="font-semibold">Is:</span> good for showing the product vibe and flow.</li>
@@ -141,8 +122,8 @@ export default function Home() {
             <div className="mt-6 p-4 rounded-lg border border-gray-700 bg-gray-900/40">
               <div className="text-sm text-gray-400">Roadmap (fast)</div>
               <div className="mt-2 text-sm text-gray-200">
-                1) Connect to Salesforce demo org via SFDX token  
-                2) Replace mock orders with real `Order__c` query  
+                1) Connect to Salesforce demo org via SFDX token
+                2) Replace mock orders with real `Order__c` query
                 3) Add OpenAI responses (optional)
               </div>
             </div>

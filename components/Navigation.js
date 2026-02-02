@@ -9,14 +9,17 @@ export default function Navigation() {
 
   const isActive = (path) => router.pathname === path
 
-  const links = [
-    { href: '/', label: 'Home' },
-    { href: '/features', label: 'Features' },
-    { href: '/calculator', label: 'ROI Calculator', badge: '📊' },
-    { href: '/order-chat', label: 'Order Chat Demo', badge: '💬' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
-  ]
+  const links = router.pathname === '/'
+    ? [
+        { href: '#roi', label: 'ROI', badge: '📊' },
+        { href: '#chat', label: 'Order Chat', badge: '💬' },
+        { href: '#contact', label: 'Contact' },
+      ]
+    : [
+        { href: '/', label: 'Home' },
+        { href: '/calculator', label: 'ROI Calculator', badge: '📊' },
+        { href: '/order-chat', label: 'Order Chat Demo', badge: '💬' },
+      ]
 
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-700 bg-gradient-to-b from-slate-900/95 to-slate-900/80 backdrop-blur">
@@ -30,18 +33,31 @@ export default function Navigation() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`nav-link flex items-center gap-2 ${isActive(link.href) ? 'active' : ''}`}
-            >
-              {link.badge && <span>{link.badge}</span>}
-              {link.label}
-            </Link>
+            router.pathname === '/' ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`nav-link flex items-center gap-2`}
+              >
+                {link.badge && <span>{link.badge}</span>}
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`nav-link flex items-center gap-2 ${isActive(link.href) ? 'active' : ''}`}
+              >
+                {link.badge && <span>{link.badge}</span>}
+                {link.label}
+              </Link>
+            )
           ))}
-          <button className="cta-button">
-            Get Started
-          </button>
+          {router.pathname === '/' ? (
+            <a className="cta-button" href="#roi">Calculate Savings →</a>
+          ) : (
+            <Link className="cta-button" href="/calculator">Calculate Savings →</Link>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -68,9 +84,15 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <button className="cta-button w-full">
-              Get Started
-            </button>
+            {router.pathname === '/' ? (
+              <a className="cta-button w-full" href="#roi" onClick={() => setIsOpen(false)}>
+                Calculate Savings →
+              </a>
+            ) : (
+              <Link className="cta-button w-full" href="/calculator" onClick={() => setIsOpen(false)}>
+                Calculate Savings →
+              </Link>
+            )}
           </div>
         </div>
       )}
