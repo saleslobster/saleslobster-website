@@ -4,6 +4,7 @@ import {
   Bar,
   LineChart,
   Line,
+  ComposedChart,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -136,6 +137,13 @@ export default function ROICalculator() {
     { name: 'Agentforce', cost: Math.round(agentforceTotal) },
     { name: 'SalesLobster', cost: Math.round(saleslobsterTotal) },
   ]
+
+  const fmtMoney = (n) => {
+    const v = Number(n || 0)
+    if (Math.abs(v) >= 1_000_000) return `$${(v / 1_000_000).toFixed(1)}M`
+    if (Math.abs(v) >= 1_000) return `$${Math.round(v / 1_000)}K`
+    return `$${Math.round(v)}`
+  }
 
   const yearly = [1, 2, 3].map((y) => {
     const m = y * 12
@@ -277,19 +285,26 @@ export default function ROICalculator() {
       </div>
 
       <div className="stat-card">
-        <h3 className="font-bold mb-4">1–3 Year View</h3>
-        <div className="h-72">
+        <h3 className="font-bold mb-1">1–3 Year View</h3>
+        <p className="text-xs text-gray-500 mb-4">
+          Costs are lines (left axis). Savings are bars (right axis) — easier to read than plotting savings as a third line.
+        </p>
+        <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={yearly}>
+            <ComposedChart data={yearly}>
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
               <XAxis dataKey="year" stroke="#9CA3AF" />
-              <YAxis stroke="#9CA3AF" />
-              <Tooltip contentStyle={{ backgroundColor: '#111827', border: '1px solid #374151', color: '#E5E7EB' }} />
+              <YAxis yAxisId="left" stroke="#9CA3AF" tickFormatter={fmtMoney} />
+              <YAxis yAxisId="right" orientation="right" stroke="#9CA3AF" tickFormatter={fmtMoney} />
+              <Tooltip
+                contentStyle={{ backgroundColor: '#111827', border: '1px solid #374151', color: '#E5E7EB' }}
+                formatter={(value, name) => [fmtMoney(value), name]}
+              />
               <Legend />
-              <Line type="monotone" dataKey="agentforce" stroke="#EF4444" strokeWidth={2} dot={false} />
-              <Line type="monotone" dataKey="saleslobster" stroke="#FF6B35" strokeWidth={2} dot={false} />
-              <Line type="monotone" dataKey="savings" stroke="#22C55E" strokeWidth={2} dot={false} />
-            </LineChart>
+              <Bar yAxisId="right" dataKey="savings" fill="#22C55E" radius={[6, 6, 0, 0]} />
+              <Line yAxisId="left" type="monotone" dataKey="agentforce" stroke="#EF4444" strokeWidth={2} dot={false} />
+              <Line yAxisId="left" type="monotone" dataKey="saleslobster" stroke="#FF6B35" strokeWidth={2} dot={false} />
+            </ComposedChart>
           </ResponsiveContainer>
         </div>
         <p className="text-xs text-gray-500 mt-3">
