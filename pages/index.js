@@ -92,7 +92,7 @@ export default function Home() {
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold">Order Chat Demo</h2>
             <p className="text-gray-400 mt-2">
-              This is a real interactive chat UI backed by a real API endpoint. Once Salesforce credentials are configured on Railway, it queries real Order__c data (real-real).
+              Ask about your order.
             </p>
           </div>
           <div className="text-sm text-gray-500">
@@ -100,33 +100,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          <div className="stat-card">
-            <h3 className="font-bold mb-3">Try it</h3>
-            <p className="text-gray-400 text-sm mb-4">
-              Type an order number like <span className="text-gray-200">ORD-00001</span>.
-            </p>
-            <div className="h-[520px]">
-              <OrderChat />
-            </div>
-          </div>
-          <div className="stat-card">
-            <h3 className="font-bold mb-3">What this demo is (and isn't)</h3>
-            <ul className="text-gray-300 text-sm space-y-2 list-disc pl-5">
-              <li><span className="font-semibold">Is:</span> a working chat UI + API route.</li>
-              <li><span className="font-semibold">Is:</span> good for showing the product vibe and flow.</li>
-              <li><span className="font-semibold">Is:</span> designed to query real Salesforce `Order__c` records via `/api/chat` when configured.</li>
-              <li><span className="font-semibold">Needs:</span> Railway env vars (SF_USERNAME/SF_PASSWORD/SF_SECURITY_TOKEN) to enable real-real mode.</li>
-            </ul>
-
-            <div className="mt-6 p-4 rounded-lg border border-gray-700 bg-gray-900/40">
-              <div className="text-sm text-gray-400">Roadmap (fast)</div>
-              <div className="mt-2 text-sm text-gray-200">
-                1) Connect to Salesforce demo org via SFDX token
-                2) Replace mock orders with real `Order__c` query
-                3) Add OpenAI responses (optional)
-              </div>
-            </div>
+        <div className="stat-card">
+          <h3 className="font-bold mb-3">Try it</h3>
+          <p className="text-gray-400 text-sm mb-4">
+            Type an order number like <span className="text-gray-200">ORD-00012</span>.
+          </p>
+          <div className="h-[520px]">
+            <OrderChat />
           </div>
         </div>
       </section>
