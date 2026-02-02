@@ -78,7 +78,7 @@ export default function Contact() {
     },
     {
       question: 'Do you offer a free trial?',
-      answer: 'Yes! You can try SalesLobster free for 30 days. No credit card required. You'll get access to all features.'
+      answer: "Yes! You can try SalesLobster free for 30 days. No credit card required. You'll get access to all features."
     },
   ]
 
