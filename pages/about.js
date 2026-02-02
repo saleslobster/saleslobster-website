@@ -62,13 +62,13 @@ export default function About() {
     },
     {
       year: '2023',
-      title: 'First 50 Customers',
-      description: 'Achieved $1M ARR in first 6 months. Early customers reported 10x ROI.'
+      title: 'Early Pilots',
+      description: 'Proved the core workflows: notes → CRM, meeting prep, and code automation.'
     },
     {
       year: '2024',
-      title: 'Series A Funding',
-      description: 'Raised $5M from top-tier VCs to accelerate product development.'
+      title: 'Hardening & Integrations',
+      description: 'Improved reliability and expanded integrations across channels.'
     },
     {
       year: '2024',
@@ -78,7 +78,7 @@ export default function About() {
     {
       year: '2025',
       title: 'Today',
-      description: 'Trusted by 500+ companies. 95%+ customer retention. Growing fast.'
+      description: 'Focused on shipping practical automation that teams can deploy fast and control fully.'
     },
   ]
 
@@ -103,28 +103,28 @@ export default function About() {
           <div>
             <h2 className="section-title mb-6">Our Mission</h2>
             <p className="text-gray-400 text-lg mb-4">
-              Salesforce automation shouldn't require a second mortgage. We built SalesLobster because we were tired of watching teams pay $200k+ per year for tools that often don't fit their workflows.
+              Salesforce automation shouldn’t come with enterprise bloat or vague pricing. SalesLobster exists to ship practical automations you can deploy quickly, understand, and control.
             </p>
             <p className="text-gray-400 text-lg mb-4">
-              Today, we're helping hundreds of companies save millions in Agentforce costs while getting better automation, more control, and faster innovation.
+              We focus on real workflows (notes → CRM, meeting prep, code automation, customer support copilots) and make them available without lock-in.
             </p>
             <p className="text-gray-400 text-lg">
-              We believe the future of sales automation is open, transparent, and affordable.
+              The future of sales automation is open, transparent, and affordable.
             </p>
           </div>
           <div className="stat-card border-2 border-lobster p-8">
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div>
-                <div className="text-4xl font-bold text-lobster mb-2">500+</div>
-                <p className="text-gray-400">Companies using SalesLobster</p>
+                <div className="text-xl font-bold text-lobster mb-2">Built for Shipping</div>
+                <p className="text-gray-400">Small, composable tools that solve specific pain points.</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-green-400 mb-2">$50M+</div>
-                <p className="text-gray-400">Saved by our customers in Year 1</p>
+                <div className="text-xl font-bold text-lobster mb-2">No Lock-in</div>
+                <p className="text-gray-400">Self-host options, clear boundaries, and extensible integrations.</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-blue-400 mb-2">95%</div>
-                <p className="text-gray-400">Customer retention rate</p>
+                <div className="text-xl font-bold text-lobster mb-2">Truthful Marketing</div>
+                <p className="text-gray-400">No made-up stats. We’ll add proof as we earn it.</p>
               </div>
             </div>
           </div>
@@ -186,30 +186,14 @@ export default function About() {
         </div>
       </section>
 
-      {/* Press & Awards */}
-      <section className="max-w-7xl mx-auto px-4 py-20 border-t border-gray-700">
-        <h2 className="section-title text-center mb-16">Recognition</h2>
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {[
-            { award: 'G2 Leader in Sales Automation', year: '2024' },
-            { award: 'Deloitte Fast 50', year: '2024' },
-            { award: 'YCombinator S23 Batch', year: '2023' },
-          ].map((item, idx) => (
-            <div key={idx} className="stat-card text-center">
-              <div className="text-4xl mb-4">🏆</div>
-              <h3 className="font-bold mb-2">{item.award}</h3>
-              <p className="text-lobster">{item.year}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Recognition intentionally omitted until we have real, verifiable awards/press mentions. */}
 
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-4 py-20 border-t border-gray-700">
         <div className="stat-card border-2 border-lobster text-center py-16">
-          <h2 className="section-title mb-4">Join 500+ Companies Saving Millions</h2>
+          <h2 className="section-title mb-4">Try SalesLobster</h2>
           <p className="section-subtitle mb-8">
-            Start your free trial today. No credit card required.
+            Explore the calculator and demos. If you want help integrating with your org, reach out.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link href="/calculator">

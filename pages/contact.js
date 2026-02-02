@@ -70,7 +70,7 @@ export default function Contact() {
     },
     {
       question: 'Is my data secure?',
-      answer: 'Yes. We use bank-grade encryption, are SOC 2 Type II certified, and HIPAA compliant. We never access or store your Salesforce data without permission.'
+      answer: 'We take security seriously: encryption in transit (TLS), least-privilege integrations, and a self-host option for teams that need maximum control. If you have specific compliance requirements, tell us and we’ll map the architecture to your needs.'
     },
     {
       question: 'What if we use Salesforce Professional Edition?',

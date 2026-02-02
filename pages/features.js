@@ -50,14 +50,14 @@ export default function Features() {
       ]
     },
     {
-      name: 'Enterprise Security',
-      description: 'Bank-grade encryption. SOC 2 compliant. Self-hosted option available for complete data control.',
+      name: 'Security & Control',
+      description: 'Designed to keep you in control. Self-host options and clear data boundaries.',
       icon: <Shield className="text-lobster" size={32} />,
       details: [
-        'End-to-end encryption',
-        'SOC 2 Type II certified',
-        'HIPAA compliant',
-        'Self-hosted deployment available'
+        'Encryption in transit (TLS)',
+        'Principle-of-least-privilege integrations',
+        'Self-hosted deployment options',
+        'Clear separation between your data and LLM providers'
       ]
     },
     {
@@ -91,7 +91,7 @@ export default function Features() {
     },
     {
       title: 'Lightning Fast Setup',
-      description: 'Connect Salesforce in 2 minutes. Start automating in hours, not months.',
+      description: 'Connect Salesforce quickly. Start automating in hours, not months.',
       icon: '⚡'
     },
     {

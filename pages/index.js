@@ -8,7 +8,7 @@ export default function Home() {
     {
       icon: <DollarSign className="text-lobster" size={32} />,
       title: '95% Cost Savings',
-      description: 'Replace Agentforce at a fraction of the cost. Save $200k+ per year vs competitors.'
+      description: 'Replace Agentforce at a fraction of the cost. Keep spend predictable as you scale.'
     },
     {
       icon: <Zap className="text-lobster" size={32} />,
@@ -23,7 +23,7 @@ export default function Home() {
     {
       icon: <Users className="text-lobster" size={32} />,
       title: 'Unlimited Scalability',
-      description: 'Scale from 10 SDRs to 1000+ without breaking the bank. Linear pricing, no surprises.'
+      description: 'Scale your automations without surprise pricing. Clear, predictable plans.'
     },
     {
       icon: <Shield className="text-lobster" size={32} />,
@@ -37,23 +37,7 @@ export default function Home() {
     },
   ]
 
-  const testimonials = [
-    {
-      text: 'We spent $200k/year on Agentforce just for our 50-person SDR team. SalesLobster does the same thing for under $10k. It\'s a no-brainer.',
-      author: 'VP Sales, Fortune 500 Tech',
-      role: 'Fortune 500 Sales Leader'
-    },
-    {
-      text: 'The hidden costs of Agentforce (Data Cloud, setup, training) made it impossible to justify. SalesLobster just works, and it\'s cheap.',
-      author: 'Salesforce Admin',
-      role: 'Mid-Market SaaS'
-    },
-    {
-      text: 'We were locked into Salesforce. SalesLobster gave us freedom to integrate with Slack, Teams, and Discord. Game changer.',
-      author: 'Engineering Manager',
-      role: 'Startup'
-    },
-  ]
+  // Testimonials intentionally omitted until we have real, attributable customer quotes.
 
   const useCases = [
     {
@@ -106,7 +90,7 @@ export default function Home() {
       {/* Hero Section */}
       <Hero
         title="Replace Agentforce at 95% Savings"
-        subtitle="SalesLobster automates your Salesforce workflows without the $200k price tag. Deploy in minutes, save thousands per month."
+        subtitle="SalesLobster automates Salesforce workflows without enterprise bloat. Deploy in minutes and keep full control over your stack."
         ctaText="Calculate Your Savings"
         ctaLink="/calculator"
       />
@@ -150,8 +134,8 @@ export default function Home() {
         </div>
 
         <div className="stat-card text-center py-8 mb-12">
-          <h3 className="text-2xl font-bold mb-4">Average ROI: 1,000% Year 1</h3>
-          <p className="text-gray-400">Teams save an average of $100k in the first year. Most see full ROI within 30 days.</p>
+          <h3 className="text-2xl font-bold mb-4">See Your ROI (Without Guesswork)</h3>
+          <p className="text-gray-400">Use the calculator to estimate savings based on your team size and workflow volume.</p>
         </div>
 
         <div className="text-center">
@@ -191,22 +175,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="max-w-7xl mx-auto px-4 py-20 border-t border-gray-700">
-        <h2 className="section-title text-center mb-16">Loved by Sales Teams</h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="stat-card">
-              <p className="text-gray-300 mb-4">"{testimonial.text}"</p>
-              <div>
-                <p className="font-bold text-lobster">{testimonial.author}</p>
-                <p className="text-gray-500 text-sm">{testimonial.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Testimonials intentionally omitted until we have real, attributable customer quotes. */}
 
       {/* Dual CTA Section */}
       <section className="max-w-7xl mx-auto px-4 py-20 border-t border-gray-700">
@@ -228,7 +197,7 @@ export default function Home() {
             <div className="text-5xl mb-4">💬</div>
             <h3 className="text-2xl font-bold mb-4">Order Chat Demo</h3>
             <p className="text-gray-400 mb-6">
-              Try our AI-powered order tracking chatbot that reduces support tickets by 70%.
+              Try our AI-powered order tracking chatbot demo (great example of a customer-facing Salesforce copilot).
             </p>
             <Link href="/order-chat">
               <button className="cta-button w-full">
@@ -239,13 +208,13 @@ export default function Home() {
         </div>
 
         <div className="stat-card text-center py-12">
-          <h2 className="section-title mb-4">Join 500+ Companies Saving Millions</h2>
+          <h2 className="section-title mb-4">Ready to Try It?</h2>
           <p className="section-subtitle mb-8">
-            Both tools included. Start your free trial today. No credit card required.
+            See the ROI calculator and the Order Chat demo in action. If you like it, we’ll help you wire it into your org.
           </p>
           <Link href="/contact">
             <button className="cta-button text-lg">
-              Get Started Free →
+              Talk to Us →
             </button>
           </Link>
         </div>
