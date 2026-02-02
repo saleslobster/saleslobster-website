@@ -1,0 +1,12 @@
+{
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "@next_public_site_url"
+  },
+  "redirects": [
+    {
+      "source": "/roi",
+      "destination": "/calculator",
+      "permanent": false
+    }
+  ]
+}
