@@ -111,7 +111,7 @@ export default function Home() {
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold">Order Chat Demo</h2>
             <p className="text-gray-400 mt-2">
-              This is a real interactive chat UI. Right now it uses a demo API endpoint (mock orders). We can wire it to real Salesforce + LLM next.
+              This is a real interactive chat UI backed by a real API endpoint. Once Salesforce credentials are configured on Railway, it queries real Order__c data (real-real).
             </p>
           </div>
           <div className="text-sm text-gray-500">
@@ -134,8 +134,8 @@ export default function Home() {
             <ul className="text-gray-300 text-sm space-y-2 list-disc pl-5">
               <li><span className="font-semibold">Is:</span> a working chat UI + API route.</li>
               <li><span className="font-semibold">Is:</span> good for showing the product vibe and flow.</li>
-              <li><span className="font-semibold">Isn’t:</span> connected to your real org yet (currently mocked orders).</li>
-              <li><span className="font-semibold">Next:</span> swap `/api/chat` to use the real `saleslobster-order-chat` backend and query Salesforce.</li>
+              <li><span className="font-semibold">Is:</span> designed to query real Salesforce `Order__c` records via `/api/chat` when configured.</li>
+              <li><span className="font-semibold">Needs:</span> Railway env vars (SF_USERNAME/SF_PASSWORD/SF_SECURITY_TOKEN) to enable real-real mode.</li>
             </ul>
 
             <div className="mt-6 p-4 rounded-lg border border-gray-700 bg-gray-900/40">
