@@ -4,8 +4,10 @@ The official website for **SalesLobster** — Salesforce automation at a fractio
 
 ## 🦞 About SalesLobster
 
-SalesLobster replaces Salesforce Agentforce at **95% savings**. We automate:
+SalesLobster replaces Salesforce Agentforce at **95% savings** and includes:
 
+- **ROI Calculator** - Interactive calculator showing exact savings
+- **Order Chat Demo** - AI-powered order tracking chatbot for customers
 - Meeting notes processing
 - Meeting prep briefing
 - Apex code generation & deployment
@@ -48,22 +50,26 @@ npm run start
 ```
 saleslobster-website/
 ├── pages/
-│   ├── _app.js           # Next.js app wrapper
-│   ├── _document.js      # HTML document wrapper
-│   ├── index.js          # Homepage
-│   ├── calculator.js     # ROI Calculator page
-│   ├── features.js       # Features page
-│   ├── about.js          # About & Mission page
-│   └── contact.js        # Contact page
+│   ├── _app.js              # Next.js app wrapper
+│   ├── _document.js         # HTML document wrapper
+│   ├── index.js             # Homepage
+│   ├── calculator.js        # ROI Calculator page
+│   ├── order-chat.js        # Order Chat demo page
+│   ├── features.js          # Features page
+│   ├── about.js             # About & Mission page
+│   ├── contact.js           # Contact page
+│   └── api/
+│       └── chat.js          # Chat API endpoint (demo)
 ├── components/
-│   ├── Navigation.js     # Top navigation bar
-│   ├── Footer.js         # Footer with links
-│   └── Hero.js           # Reusable hero section
+│   ├── Navigation.js        # Top navigation bar
+│   ├── Footer.js            # Footer with links
+│   ├── Hero.js              # Reusable hero section
+│   └── OrderChat.js         # Order chat component
 ├── styles/
-│   └── globals.css       # Global styles & Tailwind
-├── public/               # Static assets
-├── tailwind.config.js    # Tailwind configuration
-└── next.config.js        # Next.js configuration
+│   └── globals.css          # Global styles & Tailwind
+├── public/                  # Static assets
+├── tailwind.config.js       # Tailwind configuration
+└── next.config.js           # Next.js configuration
 ```
 
 ## 🎨 Design Stack
@@ -77,48 +83,61 @@ saleslobster-website/
 ## 📄 Pages
 
 ### Homepage (`/`)
-- Hero section with value prop
-- 6 key features with icons
-- 4 main use cases
-- Head-to-head Agentforce comparison
-- Testimonials from customers
-- Strong CTA to ROI calculator
+- Hero section with clear value prop: "Replace Agentforce at 95% Savings"
+- 6 key features with icons and descriptions
+- 4 use cases with ROI impact metrics
+- Head-to-head comparison with Agentforce
+- Customer testimonials (3)
+- Dual CTA cards (ROI Calculator + Order Chat Demo)
+- Multiple CTAs to both tools
 
 ### ROI Calculator (`/calculator`)
-- Interactive team size slider (10-1000 SDRs)
-- Projection period selector (3mo - 3yr)
-- Real-time cost comparison
-- Line chart showing monthly costs
-- Pie chart showing total cost
-- Use case breakdowns
-- Feature comparison matrix
+- Interactive team size slider (10-1,000 SDRs)
+- Projection period selector (3 months to 3 years)
+- Real-time cost calculations and comparisons
+- Line chart: Monthly cost trend
+- Pie chart: Total cost breakdown
+- Use case breakdowns with ROI impact
+- Feature comparison table
 - Mobile responsive
+- Links to contact page and features
+
+### Order Chat Demo (`/order-chat`) 
+**NEW** - Interactive demo of the order tracking chatbot
+- Try live chat with demo orders (ORD-00001 through ORD-00004)
+- See how Order Chat integrates with Salesforce Order__c
+- Shows 4 key benefits with metrics
+- How it works (4-step process)
+- Integration details (setup time, required fields)
+- Typical cost savings ($145k/year example)
+- Links to ROI calculator to quantify savings
 
 ### Features (`/features`)
-- 6 detailed feature cards
-- 6 key capabilities
-- Complete feature comparison table
-- 3 pricing tiers
-- FAQ about features
+- 6 detailed feature cards (including Order Chat)
+- 6 key capabilities (multi-channel, no lock-in, pay-per-use, etc.)
+- Complete feature comparison table (SalesLobster vs Agentforce vs Manual)
+- 3 pricing tiers (Starter, Professional, Enterprise)
+- Contact for custom pricing
 
-### About (`/about`)
-- Company mission & values
-- Team bios (4 core team members)
-- Company timeline
+### About/Mission (`/about`)
+- Mission statement and company vision
+- 4 core values with icons
+- Team section with 4 members and bios
+- Company timeline (5 milestones)
 - Recognition & awards
-- Customer impact stats
+- Key statistics (500+ customers, $50M+ saved, 95% retention)
 
 ### Contact (`/contact`)
-- Contact form
-- 3 contact methods (email, chat, phone)
-- FAQ section (6 questions)
-- Office locations
-- Quick response guarantee
+- Fully functional contact form
+- 3 contact methods (email, live chat, phone)
+- 6-item FAQ section
+- 3 office locations
+- Quick response guarantee info
 
 ## 🔧 Configuration
 
 ### Environment Variables
-None required for development. Create `.env.local` if needed:
+None required for development. For production, create `.env.local` if needed:
 
 ```
 NEXT_PUBLIC_SITE_URL=https://saleslobster.com
@@ -130,19 +149,27 @@ Custom colors defined in `tailwind.config.js`:
 - `lobster-dark`: #D94520 (darker orange)
 - `lobster-light`: #FFB84D (lighter orange)
 
-## 📊 Analytics
+## 🔌 API Integration
 
-To add analytics, install your preferred provider:
+### Chat API (`/api/chat`)
+The Order Chat Demo uses a mock API for demo purposes. In production:
 
-```bash
-npm install @vercel/analytics
-```
+1. **Option 1: Use Real Backend**
+   - Deploy the `saleslobster-order-chat` backend API
+   - Point the chat component to your deployed API
+   - Set environment variable: `NEXT_PUBLIC_CHAT_API=https://your-api.com`
 
-Then import in `pages/_app.js`:
+2. **Option 2: Serverless Function**
+   - Deploy `api/chat.js` to Vercel as a serverless function
+   - Automatically available at `/api/chat`
+   - Requires connecting to Salesforce + OpenAI
 
-```javascript
-import { Analytics } from '@vercel/analytics/react'
-```
+### Demo Orders
+The demo chat comes with built-in test orders:
+- `ORD-00001` - Delivered order
+- `ORD-00002` - Shipped order  
+- `ORD-00003` - Processing order
+- `ORD-00004` - Draft order
 
 ## 🚢 Deployment
 
@@ -153,6 +180,13 @@ npm install -g vercel
 vercel
 ```
 
+### Deploy to Docker
+
+```bash
+docker build -t saleslobster-website .
+docker run -p 3000:3000 saleslobster-website
+```
+
 ### Deploy to GitHub Pages
 
 ```bash
@@ -160,27 +194,47 @@ npm run export
 # Then push the `out/` directory to gh-pages branch
 ```
 
-### Docker
-
-```bash
-docker build -t saleslobster-website .
-docker run -p 3000:3000 saleslobster-website
-```
-
 ## 📝 Content Updates
 
-### Update pricing data
-Pricing is hardcoded in `/pages/calculator.js` for demo purposes. To use dynamic data:
+### Update ROI Calculator Data
+Edit pricing data in `/pages/calculator.js`:
+```javascript
+const pricingData = {
+  agentforce: { ... },
+  saleslobster: { ... },
+  useCases: [ ... ]
+}
+```
 
-1. Create `/public/pricing.json`
-2. Fetch in useEffect in calculator page
-3. Update state accordingly
+### Update Order Chat Demo Orders
+Edit demo orders in `/pages/api/chat.js`:
+```javascript
+const DEMO_ORDERS = {
+  'ORD-00001': { ... },
+  // ...
+}
+```
 
-### Update team members
+### Update Team Members
 Edit the `team` array in `/pages/about.js`
 
-### Update testimonials
+### Update Testimonials
 Edit the `testimonials` array in `/pages/index.js`
+
+### Update Navigation Links
+Edit the `links` array in `/components/Navigation.js`
+
+## 📊 Features Summary
+
+| Feature | Pages | Details |
+|---------|-------|---------|
+| ROI Calculator | `/calculator` | Real-time cost calculations, charts, comparisons |
+| Order Chat Demo | `/order-chat` | Live chat, demo orders, Salesforce integration info |
+| Features | `/features` | All capabilities, comparison table, pricing |
+| About | `/about` | Mission, team, timeline, stats |
+| Contact | `/contact` | Form, contact methods, FAQ, offices |
+| Navigation | All | Sticky header, mobile menu, badges |
+| Footer | All | Product links, company links, social, legal |
 
 ## 🤝 Contributing
 
@@ -208,11 +262,12 @@ MIT License - see LICENSE file for details
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 - Icons from [Lucide React](https://lucide.dev/)
 - Charts with [Recharts](https://recharts.org/)
+- Chat demo powered by mock API (production version uses [OpenAI](https://openai.com/) + [Salesforce](https://salesforce.com/))
 
 ---
 
 **🦞 SalesLobster — Salesforce Automation at a Fraction of the Cost**
 
-Save 95% on Salesforce automation. No Data Cloud. No vendor lock-in. Just honest software.
+Save 95% on Salesforce automation. Includes ROI Calculator and Order Chat Demo.
 
-[Get Started Free](https://saleslobster.com)
+[Get Started Free](https://saleslobster.com) | [Try Order Chat](https://saleslobster.com/order-chat) | [See Savings](https://saleslobster.com/calculator)

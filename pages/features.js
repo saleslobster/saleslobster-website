@@ -156,7 +156,7 @@ export default function Features() {
       {/* Hero */}
       <Hero
         title="Powerful Features for Modern Sales Teams"
-        subtitle="Everything you need to automate Salesforce workflows. All included in one platform."
+        subtitle="Everything you need to automate Salesforce workflows. Includes ROI calculator, order chat, and more. All included in one platform."
         cta={false}
       />
 

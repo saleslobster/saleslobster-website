@@ -12,7 +12,8 @@ export default function Navigation() {
   const links = [
     { href: '/', label: 'Home' },
     { href: '/features', label: 'Features' },
-    { href: '/calculator', label: 'ROI Calculator' },
+    { href: '/calculator', label: 'ROI Calculator', badge: '📊' },
+    { href: '/order-chat', label: 'Order Chat Demo', badge: '💬' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ]
@@ -32,8 +33,9 @@ export default function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+              className={`nav-link flex items-center gap-2 ${isActive(link.href) ? 'active' : ''}`}
             >
+              {link.badge && <span>{link.badge}</span>}
               {link.label}
             </Link>
           ))}
@@ -60,8 +62,9 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block nav-link ${isActive(link.href) ? 'active' : ''}`}
+                className={`block nav-link flex items-center gap-2 ${isActive(link.href) ? 'active' : ''}`}
               >
+                {link.badge && <span>{link.badge}</span>}
                 {link.label}
               </Link>
             ))}

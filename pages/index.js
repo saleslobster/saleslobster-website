@@ -208,25 +208,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Dual CTA Section */}
       <section className="max-w-7xl mx-auto px-4 py-20 border-t border-gray-700">
-        <div className="stat-card border-2 border-lobster text-center py-16">
-          <h2 className="section-title mb-4">Ready to Save 95%?</h2>
-          <p className="section-subtitle mb-8">
-            Start with our ROI calculator. See exactly how much you'll save.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="stat-card border-2 border-lobster text-center py-12">
+            <div className="text-5xl mb-4">📊</div>
+            <h3 className="text-2xl font-bold mb-4">ROI Calculator</h3>
+            <p className="text-gray-400 mb-6">
+              See exactly how much you'll save by replacing Agentforce with SalesLobster.
+            </p>
             <Link href="/calculator">
-              <button className="cta-button text-lg">
+              <button className="cta-button w-full">
                 Calculate Savings →
               </button>
             </Link>
-            <Link href="/contact">
-              <button className="cta-button-outline text-lg">
-                Talk to Our Team
+          </div>
+
+          <div className="stat-card border-2 border-lobster text-center py-12">
+            <div className="text-5xl mb-4">💬</div>
+            <h3 className="text-2xl font-bold mb-4">Order Chat Demo</h3>
+            <p className="text-gray-400 mb-6">
+              Try our AI-powered order tracking chatbot that reduces support tickets by 70%.
+            </p>
+            <Link href="/order-chat">
+              <button className="cta-button w-full">
+                Try Order Chat →
               </button>
             </Link>
           </div>
+        </div>
+
+        <div className="stat-card text-center py-12">
+          <h2 className="section-title mb-4">Join 500+ Companies Saving Millions</h2>
+          <p className="section-subtitle mb-8">
+            Both tools included. Start your free trial today. No credit card required.
+          </p>
+          <Link href="/contact">
+            <button className="cta-button text-lg">
+              Get Started Free →
+            </button>
+          </Link>
         </div>
       </section>
     </>
